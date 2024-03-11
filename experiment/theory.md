@@ -7,7 +7,7 @@ Combinational Multipliers do multiplication of two unsigned binary numbers.Each 
 
 The design of a combinational multiplier to multiply two 4-bit binary number is illustrated below:
 
-<img src="./simulation/images/imgae_1.png">
+<img src="./simulation/images/imgae_1.png"> 
 
 If two n-bit numbers are multiplied then the output will be less than or equals to 2n bits.
 
