@@ -1,0 +1,29 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "In a combinational circuit, output depends on",
+      "answers": {
+        "a": "Present inputs and Present output",
+        "b": "Present inputs and previous output",
+        "c": "Present inputs only",
+        "d": "None of these"
+      },
+     
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "A 2-bit binary multiplier can be designed by",
+      "answers": {
+        "a": "2 input XORs and 4 input AND gates only",
+        "b": "2 input AND gates only",
+        "c": "XOR gates and shift registers",
+        "d": "None of these"
+      },
+      
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    }
+  ]
+}
