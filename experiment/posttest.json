@@ -2,27 +2,49 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "The time required for a gate or inverter to change its state is called",
+      "question": "Combinational multiplier requires more hardware than shift and add multipliers",
       "answers": {
-        "a": "Rise time",
-        "b": "Decay time",
-        "c": "Propagation time",
-        "d": "Charging time"
+        "a": "True",
+        "b": "False"
+      },
+      
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What is the average arithmetic operations in an m-bit multiplier with bit pair multiplication scheme?",
+      "answers": {
+        "a": "2m",
+        "b": "m",
+        "c": "m/2",
+        "d": "None of these"
       },
       
       "correctAnswer": "c",
       "difficulty": "beginner"
     },
     {
-      "question": "The maximum frequency at which digital data can be applied to gate is called",
+      "question": "Which type of adder can add three or more numbers at a time?",
       "answers": {
-        "a": "Propagation speed",
-        "b": "Charging time",
-        "c": "Binary level transaction period",
-        "d": "Operating speed"
+        "a": "Carry-look-ahead adder",
+        "b": "Carry-save adder",
+        "c": "Full adder",
+        "d": "Parallel adder"
       },
       
-      "correctAnswer": "d",
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What is the maximum gate delay in an array multiplier which multiplies 2m bit numbers?",
+      "answers": {
+        "a": "O(1)",
+        "b": "O(m)",
+        "c": "O(logm)",
+        "d": "None of these"
+      },
+      
+      "correctAnswer": "a",
       "difficulty": "beginner"
     }
   ]
