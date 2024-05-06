@@ -1,0 +1,65 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "In a combinational circuit, output depends on",
+      "answers": {
+        "a": "Present inputs and Present output",
+        "b": "Present inputs and previous output",
+        "c": "Present inputs only",
+        "d": "None of these"
+      },
+     
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "A 2-bit binary multiplier can be designed by",
+      "answers": {
+        "a": "2 input XORs and 4 input AND gates only",
+        "b": "2 input AND gates only",
+        "c": "XOR gates and shift registers",
+        "d": "None of these"
+      },
+      
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "The time required for a gate or inverter to change its state is called",
+      "answers": {
+        "a": "Rise time",
+        "b": "Decay time",
+        "c": "Propagation time",
+        "d": "Charging time"
+      },
+      
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "The maximum frequency at which digital data can be applied to gate is called",
+      "answers": {
+        "a": "Propagation speed",
+        "b": "Charging time",
+        "c": "Binary level transaction period",
+        "d": "Operating speed"
+      },
+      
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "The time required for a pulse to change from 10 to 90 percent of its maximum value is called",
+      "answers": {
+        "a": "Propagation time",
+        "b": "Decay time",
+        "c": "Rise time",
+        "d": "Operating speed"
+      },
+      
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    }
+  ]
+}
