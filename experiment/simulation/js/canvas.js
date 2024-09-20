@@ -427,8 +427,7 @@ class Chip extends Element {
     dependency = [];
     layer = -1;
     memory = 1;
-    constructor(id, x, y, inputs, outputs, label) 
-    {
+    constructor(id, x, y, inputs, outputs, label) {
         super();
         this.id = id;
         var nr_pt = nearest_dot(x, y);
@@ -1927,6 +1926,27 @@ class Circuit {
     }
 
     save_as_component(name, pin_desc) {
+        this.name = name;
+        this.pin_desc = pin_desc;
+        var inpin_json = {};
+        var outpin_json = {};
+        var pin_id = 1;
+        for (var i = 0; i < this.inbit_pts.length; i++) {
+            var bit_id = this.inbit_pts[i];
+            inpin_json[pin_id] = bit_id;
+            pin_id = pin_id + 1;
+        }
+        if (this.clock_id !== null) {
+            inpin_json[pin_id] = this.clock_id;
+            pin_id = pin_id + 1;
+        }
+        for (var i = 0; i < this.outbit_pts.length; i++) {
+            let bit_id = this.outbit_pts[i];
+            outpin_json[pin_id] = bit_id;
+            pin_id = pin_id + 1;
+        }
+        this.inpin_map = inpin_json;
+        this.outpin_map = outpin_json;
         var blob = new Blob([JSON.stringify(this)],
                 {type: "text/plain;charset=utf-8"});
         saveAs(blob, name + ".json");
@@ -2289,8 +2309,7 @@ function getMousePos(evt) {
 }
 
 
-let mouse_down = function (e) 
-{
+let mouse_down = function (e) {
     let pos = getMousePos(e);
     var x = pos.x;
     var y = pos.y;
@@ -2819,8 +2838,6 @@ function load_circuit(json) {
 //    dc.redraw();
 //}
 
-
-//This is for the GATE buttons' click function
 $(document).ready(function () {
     $(".node").on('click', function () {
         var in_pin;
@@ -2863,8 +2880,6 @@ $(document).ready(function () {
         }
         dc.redraw();
     });
-
-    // This is for the BITSwitch and BITDisplay buttons' click function
     $(".switch").on('click', function () {
         var bit;
         if (this.id === "BITSwitch") {
@@ -2882,8 +2897,6 @@ $(document).ready(function () {
         }
         dc.redraw();
     });
-
-    //This is for the "Add Clock" button's click function
     $("#add_clock").on('click', function () {
         var high = $("#high_period").val();
         var low = $("#low_period").val();
@@ -2898,8 +2911,6 @@ $(document).ready(function () {
             dc.redraw();
         }
     });
-
-    //This is for the 'memory' button's click function
     $("#add_memory").on('click', function () {
         var memory = document.querySelector('input[name="memory"]:checked').value;
         if (memory === '1' || memory === '0') {
@@ -2921,8 +2932,6 @@ $(document).ready(function () {
             }
         }
     });
-
-    //This is for the 'Set' Button
     $("#set_val_btn").on('click', function () {
         dc.updateElementAssociation();
         var val = $("#init_val").val();
@@ -2941,8 +2950,6 @@ $(document).ready(function () {
         }
         dc.redraw();
     });
-
-    //This is for the 'reset' button
     $("#reset_val_btn").on('click', function () {
         dc.reset_circuit();
         dc.redraw();
@@ -2968,7 +2975,7 @@ $(document).ready(function () {
         }, 1000);
     }
 
-    //This is for the Trigger Clock button
+
     $("#start_clock").on('click', function () {
 //var cycles = $("#no_of_cycles").val();
         var cycles = 1;
@@ -2997,8 +3004,6 @@ $(document).ready(function () {
             loop_clock(clock, cycles, next_cycle, next_val);
         }, 1000);
     });
-
-    //This is for the 'Start Simulation' button
     $("#sim_btn").on('click', function () {
         stop_simulation_flag = false;
         dc.updateElementAssociation();
@@ -3016,13 +3021,9 @@ $(document).ready(function () {
         dc.redraw();
         dc.reset_circuit();
     });
-
-    //Not Found
     $("#stop_btn").on('click', function () {
         stop_simulation_flag = true;
     });
-
-    //This is for the 'Save As Component' button
     $("#save_dc_btn").on('click', function () {
         var name = $("#comp_name").val();
         var pin_desc = $("#pin_desc").val();
@@ -3031,14 +3032,10 @@ $(document).ready(function () {
         dc.updateCircuitLayerInfo();
         dc.save_as_component(name, pin_desc);
     });
-
-    //This is for the 'Add Component' button
     $("#add-component-button").on('click', function () {
         const json = JSON.parse(document.getElementById("data").value);
         load_component(json, init_x, init_y);
     });
-
-    //This is for the 'Load Circuit' button
     $("#load-circuit-button").on('click', function () {
         const json = JSON.parse(document.getElementById("data").value);
         load_circuit(json);
